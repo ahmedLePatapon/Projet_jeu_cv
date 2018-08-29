@@ -1,0 +1,153 @@
+body {
+  background-image: url("bubble-wallpapers.jpg");
+  padding: 10px;
+  overflow: hidden;
+  height: 100vh;
+  background-color: linear-gradient(to right, #f1db2d -4%, #641f57 100%);
+  background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+#sect{
+  position: absolute;
+  left: 25%;
+  margin: 3.5% auto;
+  width: 900px;
+  height: 800px;
+  border-radius: 10px;
+  box-shadow: 0 0 50px black;
+  display: none;
+}
+
+#canvas {
+  width: 900px;
+  height: 800px;
+  position: absolute;
+  margin: 0 auto;
+  z-index: 1;
+  border-radius: 10px;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+#fondDuJeu{
+  /*background: linear-gradient(to right, #f1db2d -4%, #641f57 100%);*/
+  /*background: linear-gradient(to right,#538EF5 -4%, #03174C 100%);*/
+  background: #122D6B;
+  width: 900px;
+  height: 800px;
+  position: absolute;
+  left: 0;
+  z-index: 0;
+  border-radius: 10px;
+  display: none;
+}
+#presentation > h3:nth-child(2){
+  font-size: 22px;
+  text-align: center;
+}
+#presentation{
+  width: 900px;
+  height: 800px;
+  margin: 0 auto;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 50px;
+  color: #122D6B;
+  background-color: #E96F86;
+  text-shadow: 0px 1px 7px  rgba(00, 00, 00, .7);
+  display: none;
+  text-align: center;
+}
+
+#presentation> h1{
+  font-size: 155px;
+  text-shadow: 0px 1px 7px  rgba(00, 00, 00, .7);
+}
+h2{
+  font-size: 29px;
+  padding-bottom: 15px
+}
+h2 a {
+  text-decoration: none;
+  color: #fff;
+}
+h2 a:hover{
+  text-decoration: none;
+  color: #39ff32;
+}
+h3{
+  text-transform: uppercase;
+}
+#presentation>p{
+  font-size: 20px;
+}
+
+#droit{
+  display: none;
+  width: 24%;
+  max-height: 100vh;
+  position: fixed;
+  right: -5px;
+  margin: 3.5% 30px 5px 0;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  box-shadow: 0px 1px 7px 0px rgba(00, 00, 00, .7);
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -webkit-box-shadow: 0px 1px 7px 0px rgba(00, 00, 00, .7);
+  padding: 30px;
+  overflow: auto;
+}
+#langues, #experiences, #competences, #formation, #cv {
+  display: none;
+}
+
+#speech{
+  background: #f0f0f0;
+  width: 900px;
+  height: 800px;
+  display: none;
+  margin: 0 auto;
+  border-radius: 10px;
+  display: block;
+  padding: 30px
+
+}
+#speech p{
+  margin: 30px;
+  font-size:30px;
+  text-align: center center;
+}
+#speech a {
+  text-decoration: none;
+  color:#ff3239;
+
+}
+a.vert {
+  color: #39ff32 !important;
+}
+#lienVert a {
+  color: #39ff32;
+}
+
+.rouge{
+  color: #ff3239;
+}
+.verte{
+  color: #39ff32;
+}
+
+@media (max-width: 1200px) {
+  section{
+    margin: 0 auto;
+    left:0;
+  }
+
+}

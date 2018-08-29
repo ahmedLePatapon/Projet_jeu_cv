@@ -1,0 +1,230 @@
+
+html{
+  background-color: rgba(0,0,0,0.8);
+  z-index: -100000;
+}
+
+h3{
+  text-transform: uppercase;
+  font-size: 16px;
+}
+h4{
+  font-weight: lighter;
+}
+
+body {
+  background: url("fond_cv.jpg") center center;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  z-index: 0;
+  overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+
+/*text*/
+.text-white,.text-white-hover:hover{color:#fff!important}
+/*fontcolor*/
+.light-grey {color:#000!important;background-color:#E6E9ED!important}
+
+.arriere{
+  background-color: rgba(0,0,0,0.8);
+  box-shadow: 0px 1px 7px 0px rgba(00, 00, 00, .7);
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -webkit-box-shadow: 0px 1px 7px 0px rgba(00, 00, 00, .7);
+  padding: 30px;
+}
+
+.taille{
+  height: 100vh;
+  padding-top: 15vh;
+}
+/* Menu de gauche*/
+#menu-gauche{
+	background-color: rgba(0,0,0,0.8);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	overflow: auto;
+	box-shadow: 0px 1px 7px 0px rgba(00, 00, 00, .7);
+}
+
+#identite{
+	padding-top: 35px;
+  color: #fff;
+  letter-spacing: 0.2em;
+  font-size: 40px;
+}
+#identite h2{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  font-size: 25px;
+}
+#nom{
+  font-family: 'Russo One', sans-serif;
+  letter-spacing: .15em;
+  font-size: 48px;
+}
+nav{
+	padding-top: 75px;
+	line-height:3;
+  overflow: hidden;
+  text-align: right;
+}
+
+
+ul li {
+  list-style: none;
+}
+
+ul li a {
+  text-decoration: none;
+  font-size: 15px;
+  color: gray;
+  text-transform: uppercase;
+}
+ul li a:hover, ul li a:focus{
+  text-decoration: none;
+  color: #fff;
+}
+
+i{
+  padding: 5px;
+}
+
+#presentation > div:nth-child(2){
+  display: inline-block;
+}
+/*fin menu gauche*/
+
+/*Debut corps*/
+#corps{
+	margin-left: 36.667%;
+  position:relative;
+  opacity: 1;
+}
+.bloc {
+  display: inline;
+  width: 48%;
+  max-height: 100%;
+}
+h4{
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+#bouton{
+  margin-top: 50px;
+}
+#bouton button{
+  background: rgba(00, 00, 00, .7);
+  color: white;
+  box-shadow: 0px 1px 7px 0px rgba(00, 00, 00, .7);
+  position: fixed;
+}
+
+#gauche{
+  float: left;
+  padding: 0 30px 0 0;
+}
+
+section img{
+	box-shadow: 0px 1px 7px 0px rgba(00, 00, 00, .7);
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-webkit-box-shadow: 0px 1px 7px 0px rgba(00, 00, 00, .7);
+  margin-bottom: 25px;
+}
+/*Debut competences*/
+#competences{
+	background-color: rgba(0,0,0,0.8);
+	padding: 30px;
+}
+.progress {
+  height: 35px;
+}
+.progress .skill {
+  line-height: 35px;
+  padding: 0;
+  margin: 0 0 0 20px;
+  text-transform: uppercase;
+  color: #000;
+  font-size:bold  25px;
+}
+
+.progress .skill .val {
+  float: right;
+  font-style: bolder;
+  margin: 0 20px 0 0;
+}
+
+.progress-bar {
+  text-align: left;
+  transition-duration: 3s;
+}
+/*Fin competences*/
+
+/* Debut Experience */
+
+.col-md-12{
+  margin-bottom: 15px;
+}
+
+.gauche i a{
+  text-decoration: none;
+}
+button{
+  margin-top: 15px;
+}
+div.col-md-6 > p:nth-child(7) a{
+  font-size: 25px;
+  color:inherit;
+}
+h5{
+  font-size: 20px;
+}
+
+@media (max-width: 990px ) {
+  h1{
+    font-size: 30px;
+  }
+  #nom{
+    display: inline-block;
+    float: right;
+    font-size: 43px;
+  }
+  nav{
+    padding-top: 110px;
+  }
+}
+@media (max-width: 920px) {
+  h1{
+    font-size: 20px;
+  }
+  #nom{
+    display: inline-block;
+    float: right;
+    font-size: 22px;
+  }
+  #identite h2{
+    font-size: 17px;
+  }
+  nav{
+    padding-top: 110px;
+  }
+}
+@media (max-width:680px) {
+  #identite h2{
+    font-size: 17px;
+  }
+  #menu-gauche{
+    left: 0;
+    top: 0;
+    right:
+  }
+}
