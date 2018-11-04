@@ -1,183 +1,70 @@
-var NB_BALLS = 15;
-var PADDING = 50;
-var CANVAS_WIDTH = 900;
-var CANVAS_HEIGHT = 800;
-var BASE_TIMER = 60;
+import { Ball } from './Ball';
 
+const NB_BALLS = 15;
+const PADDING = 50;
+const CANVAS_WIDTH = 900;
+const CANVAS_HEIGHT = 800;
+const BASE_TIMER = 60;
+let timer;
+let timerJeu;
 
 window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 
-
-var timer;
-var timerJeu;
 function clic(){
   document.getElementById('wrap').style.display='none';
   document.getElementById('button2').style.display='none';
   document.getElementById('canvas').style.display='none';
-  document.getElementById('fondDuJeu').style.display='block';
-  document.getElementById('sect').style.display='block';
-  document.getElementById('presentation').style.display='block';
   document.getElementById('droit').style.display='none';
   document.getElementById('competences').style.display='none';
   document.getElementById('experiences').style.display='none';
   document.getElementById('formation').style.display='none';
   document.getElementById('langues').style.display='none';
   document.getElementById('cv').style.display='none';
+  document.getElementById('fondDuJeu').style.display='block';
+  document.getElementById('sect').style.display='block';
+  document.getElementById('presentation').style.display='block';
 };
 
 function clic2(){
   document.getElementById('wrap').style.display='none';
   document.getElementById('button2').style.display='none';
+  document.getElementById('presentation').style.display='none';
   document.getElementById('canvas').style.display='block';
   document.getElementById('fondDuJeu').style.display='block';
   document.getElementById('sect').style.display='block';
-  document.getElementById('presentation').style.display='none';
   jeu();
 }
 
-
-
 function jeu(){
-
   // Nettoyage de la console
   console.clear()
 
   // Récupération du canvas et du contexte 2d
-  var canvas = document.getElementById('canvas');
-  var ctx = canvas.getContext('2d');
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
   canvas.width = CANVAS_WIDTH;
   canvas.height = CANVAS_HEIGHT;
-  var h = canvas.height;
-  var w = canvas.width;
+  const h = canvas.height;
+  const w = canvas.width;
   document.getElementById('canvas').style.cursor='crosshair' // Modification de l'aspect de la souris ds le canvas (une croix)
 
   // Initialisation du score et du timer
   timer = BASE_TIMER;
-  var score = 0;
-  var level = 1;
-  var newLevel = false;
-  var difficulte = 10;
-
-
-
-
-  // Constructeur de notre objet Ball
-  var Ball = function () {
-
-    // Initialisation des paramètres de la balle
-    this.init = function () {
-      this.x = parseInt(w * Math.random(), 10); // Renvoi un nombre entier via parseInt() entre 0 et la taille du canvas
-      this.y = parseInt(h * Math.random(), 10);
-      this.r = parseInt(Math.random() * 20 + 10, 10); // Renvoie un rayon entre 10 et 30
-      this.enemy = (Math.random() * 10) > 5 ? true : false; // Si random > 5, alors c'est un enemi, sinon c'est un gentil
-      this.color = this.enemy ? '#ff3239' : '#39ff32'; // Couleur en fonction de l'enemi
-      if(score <= 0 ) {score = 0;};  //si le score est inferieur a 0 on le met a 0 pr eviter d'avoir un score negatif.
-
-      //condition d'attribution des points en fonction du rayon de la boule explosée.
-      if(this.r < 15 ) {this.points = this.enemy ? -5 : 10; };
-      if(this.r > 20 ) {this.points = this.enemy ? -7 : 3; };
-      this.points = this.enemy ? -3 : 5;
-      this.angle = Math.random() * (Math.PI * 2); // Angle aléatoire en radians
-      this.speed = Math.random() * .5 + 1.5 + (level * .3); // Vitesse aléatoire entre 0.5 et 1.5
-      this.exploding = false; // Status de la balle
-    }
-
-    // Dessine la balle dans le canvas
-    this.draw = function () {
-      if (this.exploding === false) {
-        this.x += Math.cos(this.angle) * this.speed; // Calcul de la trajectoire de la balle en fonction de l'angle et de la vitesse
-        this.y += Math.sin(this.angle) * this.speed; // Pour la gestion du level, multiplier par level
-      }
-
-      // Si la balle sort du canvas, on réinitialise une nouvelle balle
-      if (this.x > w + PADDING || this.x < -PADDING || this.y > h + PADDING || this.y < -PADDING) {
-        this.init()
-      }
-
-
-      // Si la balle est en train d'exploser, le rayon diminue
-      if (this.exploding === true) {
-        this.r = this.r - 3;
-
-        // Si le rayon est inférieur à 0, on réinitialise une nouvelle balle
-        if (this.r < 0) {
-          this.init();
-        }
-      }
-
-
-      // Dessine la balle
-      ctx.fillStyle = this.color;
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fill();
-    }
-
-    // lorsqu'il y a collision, cette fonction est appellée
-    this.explode = function () {
-      // if(this.enemy){
-      //   this.color = '#990000';
-      // } else{
-      //   this.color = '#009900';
-      // }
-
-      this.exploding = true;
-
-      score += this.points; // Modifie le score
-
-      //incrementation des levels et de la difficulté pour atteindre le suivant.
-      if (score >= difficulte) {
-        level++;
-        difficulte += 20;
-        newLevel = true;
-        setTimeout(function() {
-          newLevel = false;
-        }, 1000);
-      }
-        // $(score).slide(right)
-      console.log(score);
-      if (level === 2 ) {
-        document.getElementById('droit').style.display='block';
-        document.getElementById('competences').style.display='block';
-      };
-      if (level === 3 ) {
-        document.getElementById('experiences').style.display='block';
-      };
-      if (level === 4 ) {
-        document.getElementById('formation').style.display='block';
-      };
-      if (level === 5 ) {
-        document.getElementById('langues').style.display='block';
-      };
-      if (level === 6 ) {
-        document.getElementById('cv').style.display='block';
-      };
-
-
-
-
-
-
-
-      //création des objets Particle
-      var explosion = new Explosion();
-      explosion.init(this.x, this.y, this.color);
-      explosions.push(explosion);
-    }
-  }
-
-//création du tableau qui stock les particules
-var explosions = [];
-
+  let score = 0;
+  let level = 1;
+  let newLevel = false;
+  let difficulte = 10;
+  //création du tableau qui stock les particules
+  let explosions = [];
   //Initialisation de la fonction Constructeur des particules
-  var Explosion = function (){
+
+  let Explosion = function (){
     this.conteurParticules = 20; //
     this.particules = [];
 
     this.init =  function (x, y, color) {
-      for (var i = 0; i < this.conteurParticules; i++) {
-        var particule = {};
-
+      for (let i = 0; i < this.conteurParticules; i++) {
+        let particule = {};
         particule.x = x;
         particule.y = y;
         particule.r = parseInt(Math.random() * 1 + 1.5, 10); // Renvoie un rayon entre 1 et 2
@@ -195,10 +82,9 @@ var explosions = [];
     this.meurt = function () {
       explosions.shift();
     }
-
     this.draw = function () {
-      for (var i = 0; i < this.conteurParticules; i++) {
-         var particule = this.particules[i];
+      for (let i = 0; i < this.conteurParticules; i++) {
+         let particule = this.particules[i];
 
         particule.x += Math.cos(particule.angle) * particule.speed; // Calcul de la trajectoire de la particule en fonction de l'angle et de la vitesse
         particule.y += Math.sin(particule.angle) * particule.speed; // Pour la gestion du level, multiplier par level
@@ -215,10 +101,11 @@ var explosions = [];
       }
     }
   }
+
 console.log(score);
 
   // Constructeur objet Needle
-  var Needle = function (balls) {
+  let Needle = function (balls) {
     this.balls = balls;
 
     // Initialisation de l'aiguille
@@ -236,7 +123,7 @@ console.log(score);
       this.moving = false;
 
       // Récupère les coordonnées du canvas dans le body de la page web pour calculer les coordonnées en fonction du canvas (haut gauche)
-      var rect = canvas.getBoundingClientRect();
+      let rect = canvas.getBoundingClientRect();
 
       this.x0 = rect.left;
       this.y0 = rect.top;
@@ -263,12 +150,12 @@ console.log(score);
       ctx.fill();
 
       // initialisation de la taille de la queue
-      var tailLength = this.tail.length
+      let tailLength = this.tail.length
 
       // dessine la queue
       this.tail.forEach(function (p, i) {
-        var opacity = 1 - ((tailLength - i) / tailLength)
-        var radius = 5 - ((tailLength - i) / tailLength)
+        let opacity = 1 - ((tailLength - i) / tailLength)
+        let radius = 5 - ((tailLength - i) / tailLength)
   // 0, 20, 255
         ctx.fillStyle = 'rgba(152,210,242, ' + opacity + ')';
         ctx.beginPath();
@@ -276,8 +163,6 @@ console.log(score);
         ctx.fill();
       })
     }
-
-
 
     // update needle coords
     this.moveNeedle = function (x, y) {
@@ -341,20 +226,17 @@ console.log(score);
     this.initEvents();
   }
 
-
-
   // Stock des balles dans un tableau
-  var balls = [];
+  let balls = [];
 
-  for (var i = 0; i < NB_BALLS; i++) {
-    var ball = new Ball();
+  for (let i = 0; i < NB_BALLS; i++) {
+    let ball = new Ball();
     ball.init();
     balls.push(ball);
   }
 
-
   // Initialise notre aiguille
-  var needle = new Needle(balls);
+  let needle = new Needle(balls);
   needle.init();
 
 
@@ -364,26 +246,18 @@ console.log(score);
     ctx.clearRect(0, 0, w, h);
 
     // Dessine toutes les balles du tableau
-    for (var i = 0; i < NB_BALLS; i++) {
+    for (let i = 0; i < NB_BALLS; i++) {
       balls[i].draw();
     }
 
     explosions.forEach(function (p) { p.draw() })
 
-
     // Dessine l'aiguille
     needle.draw();
 
-    for (var i = 0; i < score.length; i++) {
+    for (let i = 0; i < score.length; i++) {
       score[i]
     }
-
-
-
-
-
-
-
     // Dessine le timer
     ctx.fillStyle = '#98D2F2';
     ctx.textAlign = 'left';
@@ -393,7 +267,6 @@ console.log(score);
     // Dessine le score
     ctx.font = '16px Arial';
     ctx.fillText('Score: ' + score, 10, 60);
-
 
     //dessine le level
     ctx.font = '16px Arial';
@@ -408,14 +281,10 @@ console.log(score);
       ctx.strokeText(level, w/2, h/2+80);
     }
 
-
-
-
-
     // Tant que le timer est supérieur à 0, on continue
     if (timer > 0) {
       window.requestAnimationFrame(loop)
-    } else{ // Sinon, fin de la partie avec affichage de GAME OVER
+    } else { // Sinon, fin de la partie avec affichage de GAME OVER
       ctx.fillStyle = '#f00';
       ctx.strokeStyle = '#000';
       ctx.textAlign = 'center';
@@ -425,32 +294,24 @@ console.log(score);
     }
   }
 
-
   // Lance la boucle principale
   loop()
 
-
   // Décrémente le timer toute les secondes
-  var timerInterval = setInterval(function () {
+  let timerInterval = setInterval(function () {
     timer--;
-
     if (timer < 0) {
       timer = 0;
-
       document.getElementById('canvas').style.display='none';
       document.getElementById('fondDuJeu').style.display='none';
       document.getElementById('sect').style.display='none';
       document.getElementById('wrap').style.display='block';
       document.getElementById('button2').style.display='block';
-
       // Quand le timer arrive à 0, on stop le décompte
       clearInterval(timerInterval);
     }
-
   }, 1000)
-
 }
-
 
 $(document).ready(function() {
   $('.toggle').hide();
