@@ -399,7 +399,6 @@ function jeu(){
 }
 
 $(document).ready(function() {
-  alert('ll')
   $('.toggle').hide();
   $('.clic').click(function() {
     $(this).next('.toggle').slideToggle('easing').siblings('.toggle:visible').slideUp('fast');
