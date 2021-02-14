@@ -1,5 +1,5 @@
 body {
-  background-image: url("bubble-wallpapers.jpg");
+  background-image: url("../images/bubble-wallpapers.jpg");
   padding: 10px;
   overflow: hidden;
   height: 100vh;
@@ -150,4 +150,16 @@ a.vert {
     left:0;
   }
 
+}
+
+#replay--div {
+  position: absolute;
+  top: 6%;
+  left: 12%;
+  text-align: center;
+  filter: none;
+  z-index: 10;
+}
+#replay {
+  display: none;
 }

@@ -13,7 +13,7 @@ h4{
 }
 
 body {
-  background: url("fond_cv.jpg") center center;
+  background: url("/assets/images/fond_cv.jpg") center center;
   background-size: cover;
   background-attachment: fixed;
   overflow-x: hidden;
@@ -21,8 +21,6 @@ body {
   overflow-x: hidden;
   font-family: 'Montserrat', sans-serif;
 }
-
-
 
 /*text*/
 .text-white,.text-white-hover:hover{color:#fff!important}
@@ -225,6 +223,6 @@ h5{
   #menu-gauche{
     left: 0;
     top: 0;
-    right:
+    /* right:  */
   }
 }

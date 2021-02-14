@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="boutton.css">
     <link href="https://fonts.googleapis.com/css?family=Audiowide|Baloo+Bhaijaan|Baloo+Bhaina|Baloo+Da|Baloo+Paaji|Fredoka+One|Monofett" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -14,134 +12,131 @@
 
     <!-- cdn font-awesome -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/css/boutton.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>pikeuhBulle</title>
   </head>
   <body>
-
-  <div id="wrap">
-    <a onclick="clic()" style="text-decoration:none" id="button">JOUER</a>
-    <a href="cv.html" id="button2" style="text-decoration:none" >PAS JOUER</a>
-  </div>
-  <section id="sect">
-    <canvas id="canvas" height='900' width='800'></canvas>
-    <div id="fondDuJeu"></div>
-    <div id="presentation">
-      <h1>Pikeubulles</h1>
-      <h3>Jeu Original, sorti de mon cerveau je ne sais trop comment...</h3>
-      <p class="text-center">Explosez le plus de boules <span class="verte">vertes</span> avec votre souris pour découvrir de manière sympa mon cv ;)</p>
-      <p class="text-center">Attention aux boules <span class="rouge">rouges</span> !!!</p>
-      <p><i>Pour le moment ce jeu est optimisé pour un <b>GAMEPLAY</b> sur PC de bureau en plein écran. Merci de votre compréhension. Bon jeu !</i></p>
-      <div id="wrap2">
-        <a onclick="clic2()" style="text-decoration:none" id="button">Ok, j'suis prêt!</a>
+    <div id="wrap">
+      <a onclick="clic()" style="text-decoration:none" id="button">JOUER</a>
+      <a href="cv.html" id="button2" style="text-decoration:none" >PAS JOUER</a>
+    </div>
+    <section id="replay">
+      <div id="replay--div">
+        <a onclick="clic2()" style="text-decoration:none" id="button">Rejouer?</a>
       </div>
-    </div>
-    <div id="speech">
-      <p>Bravo, vous avez fait <span id="score"></span>
-      et vous avez debloqué plusieurs parties de mon CV. Vous avez la possibilité de le visionner en version web <a href="cv.html">ici</a> ou au format pdf <a class="vert" id="lienVert" href="CV_Ahmed_BENLEBNA_DIWJS.pdf">là.</a>
-      En espèrant que cela vous ait plu.</p> <p>A bientôt sur <b>PIKEUHBOULES</b>.</p>
-    </div>
-  </section>
-  <section id="droit">
-    <div id="competences">
-      <h2 class="clic"> Competences </h2>
-      <div class="toggle">
-        <h3 class="progress-title text-white">HTML <i class="fa fa-html5" aria-hidden="true"></i>/ CSS <i class="fa fa-css3" aria-hidden="true"></i></h3>
-        <div class="progress skill-bar ">
-          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-              <span class="skill"> <i class="val"></i></span>
-          </div>
+    </section>
+    <section id="sect">
+      <canvas id="canvas"></canvas>
+      <div id="fondDuJeu"></div>
+      <div id="presentation">
+        <h1>Pikeubulles</h1>
+        <h3>Jeu Original, sorti de mon cerveau je ne sais trop comment...</h3>
+        <p class="text-center">Explosez le plus de boules <span class="verte">vertes</span> avec votre souris pour découvrir de manière sympa mon cv ;)</p>
+        <p class="text-center">Attention aux boules <span class="rouge">rouges</span> !!!</p>
+        <p><i>Pour le moment ce jeu est optimisé pour un <b>GAMEPLAY</b> sur PC de bureau en plein écran. Merci de votre compréhension. Bon jeu !</i></p>
+        <div id="wrap2">
+          <a onclick="clic2()" style="text-decoration:none" id="button">Ok, j'suis prêt!</a>
         </div>
-        <h3 class="progress-title text-white">javascript</h3>
-        <div class="progress skill-bar">
-          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-            <span class="skill"><i class="val"></i></span>
+      </div>
+      <div id="speech">
+        <p>Bravo, vous avez fait <span id="score"></span>
+        et vous avez debloqué plusieurs parties de mon CV. Vous avez la possibilité de le visionner en version web <a href="cv.html">ici</a> ou au format pdf <a class="vert" id="lienVert" href="CV_Ahmed_BENLEBNA_DIWJS.pdf">là.</a>
+        En espèrant que cela vous ait plu.</p> <p>A bientôt sur <b>PIKEUHBOULES</b>.</p>
+      </div>
+    </section>
+    <section id="droit">
+      <div id="competences">
+        <h2 class="clic"> Competences </h2>
+        <div class="toggle">
+          <h3 class="progress-title text-white">HTML <i class="fa fa-html5" aria-hidden="true"></i>/ CSS <i class="fa fa-css3" aria-hidden="true"></i></h3>
+          <div class="progress skill-bar ">
+            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                <span class="skill"> <i class="val"></i></span>
+            </div>
           </div>
-        </div>
-        <h3 class="progress-title text-white">Node Js</h3>
-        <div class="progress skill-bar">
-          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" >
+          <h3 class="progress-title text-white">javascript</h3>
+          <div class="progress skill-bar">
+            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
               <span class="skill"><i class="val"></i></span>
+            </div>
           </div>
-        </div>
-        <h3 class="progress-title text-white">framework</h3>
-        <div class="progress skill-bar">
-          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="63" aria-valuemin="0" aria-valuemax="100">
-              <span class="skill"><i class="val"></i></span>
+          <h3 class="progress-title text-white">Node Js</h3>
+          <div class="progress skill-bar">
+            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" >
+                <span class="skill"><i class="val"></i></span>
+            </div>
           </div>
-        </div>
-        <h3 class="progress-title text-white">référencement</h3>
-        <div class="progress skill-bar">
-          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-              <span class="skill"><i class="val"></i></span>
+          <h3 class="progress-title text-white">framework</h3>
+          <div class="progress skill-bar">
+            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="63" aria-valuemin="0" aria-valuemax="100">
+                <span class="skill"><i class="val"></i></span>
+            </div>
           </div>
-        </div>
-    </div>
-    <div id="experiences">
-      <h2 class="clic"> Experiences </h2>
-      <div class="toggle">
-        <div class="col-md-12" >
-          <h5>Technicien de maintenance des systèmes automatisés</h5>
-          <p>CLEAN CAR sarl</p>
-          <p>2008 - 2016</p>
-        </div>
-        <hr style="border: 1px solid white">
-        <div class="col-md-12" >
-          <h5>Monteur – contrôleur</h5>
-          <p>GILSON s.a.s</p>
-          <p>2006</p>
-        </div>
-        <hr style="border: 1px solid white">
-        <div class="col-md-12" >
-          <h5>Manutentionnaire</h5>
-          <p>MANPOWER</p>
-          <p>2005</p>
-        </div>
-        <hr style="border: 1px solid white">
-        <div class="col-md-12" >
-          <h5>Agent recenseur</h5>
-          <p>Mairie d’Ezanville</p>
-          <p>2005</p>
-        </div>
+          <h3 class="progress-title text-white">référencement</h3>
+          <div class="progress skill-bar">
+            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                <span class="skill"><i class="val"></i></span>
+            </div>
+          </div>
       </div>
-    </div>
-    <div id="formation">
-      <h2 class="clic"> Formation </h2>
-      <div class="toggle">
-        <div class="taille">
-          <div>
-            <p>DEVELOPPEUR FULLSTACK JS</p>
-            <p>2017 Diplôme RNCP NIVEAU II</p>
-            <p>IFOCOP Paris, Responsable de formation:
-            Fabienne THIRY - 01 40 21 83 78 - fthiry@ifocop.fr</p>
+      <div id="experiences">
+        <h2 class="clic"> Experiences </h2>
+        <div class="toggle">
+          <div class="col-md-12" >
+            <h5>Technicien de maintenance des systèmes automatisés</h5>
+            <p>CLEAN CAR sarl</p>
+            <p>2008 - 2016</p>
           </div>
-
-          <hr style="border: 1px solid white">
-
-          <div>
-            <p>INTEGRATEUR WEB</p>
-            <p>2016 </p>
-            <p>ESIC, Paris 14éme.</p>
+          <div class="col-md-12" >
+            <h5>Monteur – contrôleur</h5>
+            <p>GILSON s.a.s</p>
+            <p>2006</p>
+          </div>
+          <div class="col-md-12" >
+            <h5>Manutentionnaire</h5>
+            <p>MANPOWER</p>
+            <p>2005</p>
+          </div>
+          <div class="col-md-12" >
+            <h5>Agent recenseur</h5>
+            <p>Mairie d’Ezanville</p>
+            <p>2005</p>
           </div>
         </div>
       </div>
-    </div>
-    <div id="langues">
-      <h2 class="clic"> Langues </h2>
-      <div class="toggle">
-        <div class="taille">
-          <p>Anglais professionelle</p>
-          <p>Francais langue maternelle</p>
+      <div id="formation">
+        <h2 class="clic"> Formation </h2>
+        <div class="toggle">
+          <div class="taille">
+            <div>
+              <p>DEVELOPPEUR FULLSTACK JS</p>
+              <p>2017 Diplôme RNCP NIVEAU II</p>
+              <p>IFOCOP Paris, Responsable de formation:
+              Fabienne THIRY - 01 40 21 83 78 - fthiry@ifocop.fr</p>
+            </div>
+            <div>
+              <p>INTEGRATEUR WEB</p>
+              <p>2016 </p>
+              <p>ESIC, Paris 14éme.</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div id="cv">
-      <h2><a href="cv.html">Curriculum Vitea web</a></h2>
-    </div>
-  </section>
-
-
-<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-  <script type="module" src="script.js"></script>
+      <div id="langues">
+        <h2 class="clic"> Langues </h2>
+        <div class="toggle">
+          <div class="taille">
+            <p>Anglais professionelle</p>
+            <p>Francais langue maternelle</p>
+          </div>
+        </div>
+      </div>
+      <div id="cv">
+        <h2><a href="cv.html">Curriculum Vitea web</a></h2>
+      </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>

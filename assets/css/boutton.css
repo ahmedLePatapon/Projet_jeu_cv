@@ -21,7 +21,7 @@
 }
 
 
-#wrap a, #wrap2 a {
+#wrap a, #wrap2 a, #replay--div a {
 	-webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
 	-moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
 	-ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
