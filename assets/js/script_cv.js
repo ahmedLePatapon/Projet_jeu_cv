@@ -1,5 +1,5 @@
 function scrollToAnchor(anchor){
-    var aTag = $(`${anchor}`);
+    var aTag = $(anchor);
     $('html,body').animate({scrollTop: aTag.offset().top - 50},'slow');
 }
 
